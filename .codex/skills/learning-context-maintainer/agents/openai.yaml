@@ -1,0 +1,7 @@
+interface:
+  display_name: "Learning Context Maintainer"
+  short_description: "Track learning progress and weak spots"
+  default_prompt: "Use $learning-context-maintainer to continue my study session and update learning progress when appropriate."
+
+policy:
+  allow_implicit_invocation: true
