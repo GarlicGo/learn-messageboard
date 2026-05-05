@@ -2,9 +2,9 @@
 
 ## 当前位置
 
-- 当前课程：第 2 课
-- 当前主题：需求分析、接口文档、视图对象、数据库设计、MyBatis 代码生成
-- 当前状态：第 1 课的基础骨架已经完成；代码组织方式已调整为“按课次拆分”。当前第 1 课实现保存在 `repos/messageboard-lessons/lesson-01/`，第 2 课起始代码已同步到 `repos/messageboard-lessons/lesson-02/`，后续会在该目录中逐步补齐第二课结束时的代码。
+- 当前课程：第 3 课
+- 当前主题：第 3 课起始代码已同步，准备逐步补齐本课代码
+- 当前状态：第 1 课基础骨架已完成；第 2 课的设计内容和课末代码已完成。`repos/messageboard-lessons/lesson-03/` 已同步为和 `lesson-02` 一致的起始状态，后续会在该目录中逐步补齐第 3 课代码。
 
 ## 已经学习
 
@@ -28,8 +28,12 @@
 - 已经完成第 1 课基础代码搭建，包括启动类、`application.yml`、统一返回模板、自动包装器、示例 Controller 和请求参数演示接口。
 - 已经将代码结构调整为：
   - `repos/messageboard-lessons/lesson-01/`：第 1 课代码快照
-  - `repos/messageboard-lessons/lesson-02/`：已从第 1 课代码同步出的第 2 课起始骨架
+  - `repos/messageboard-lessons/lesson-02/`：第 2 课课末代码快照
+  - `repos/messageboard-lessons/lesson-03/`：第 3 课起始代码，已从第 2 课同步
   - 后续课程会直接落在对应的 `lesson-0x/` 目录中
+- 第 2 课已经整体理解：先做需求分析和接口文档，再做 VO/Param 设计、数据库概念/逻辑/物理设计，最后演示 MyBatis X 代码生成。
+- 已经能区分第 2 课里的概念内容、手工录入内容、工具生成内容，以及哪些内容会进入最终项目结构。
+- 第 2 课代码已通过插件生成到课末状态，新增了 Entity、Mapper、Service、ServiceImpl 和 Mapper XML 骨架。
 
 ## 还不够熟悉
 
@@ -39,8 +43,9 @@
 - `ResponseBodyAdvice` 的精确执行时机。
 - 参数转换或校验失败后的完整异常流程。
 - 全局异常处理和返回包装器如何配合。
+- 第 3 课将要接触的新业务代码和新分层结构。
 
 ## 下一步建议
 
-- 继续梳理第 2 课的接口设计和数据库设计。
-- 在 `repos/messageboard-lessons/lesson-02/` 的第 1 课骨架基础上，逐步补充第 2 课相关代码结构，例如 VO、参数类、实体类和 SQL 文件。
+- 进入第 3 课，结合具体代码把前两课的设计真正落到项目里。
+- 继续留意接口文档、数据库表结构和生成代码之间的对应关系。

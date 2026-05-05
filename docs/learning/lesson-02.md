@@ -8,7 +8,7 @@
 
 已经开始进入第 2 课。当前理解到：第 2 课主要不是写业务代码，而是先把留言板项目的业务边界、接口契约、前端展示对象和数据库表结构设计清楚。
 
-当前 `repos/messageboard-lessons/lesson-02/` 已经从 `lesson-01` 同步出起始项目骨架，后续会在这个目录中逐步补齐第二课代码，直到达到第二课结束时的状态。
+当前 `repos/messageboard-lessons/lesson-02/` 已经通过插件生成到第二课结束时的代码状态。相对第 1 课，主要新增了数据库表对应的 Entity、Mapper、Service、ServiceImpl 和 Mapper XML 骨架。
 
 已经继续讨论到：
 
@@ -45,7 +45,5 @@
 
 ## 后续待实践
 
-- 在 `repos/messageboard-lessons/lesson-02/` 的现有骨架中补充第 2 课所需的 VO 类。
-- 补充参数类。
-- 补充数据库建表 SQL。
-- 后续根据课程进度引入 MyBatis、Mapper 和 Service。
+- 复盘 Entity、Mapper、Service、XML 分别对应哪一层职责。
+- 结合第 3 课继续观察这些生成代码如何被 Controller 和业务逻辑真正使用。
