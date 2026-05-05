@@ -8,6 +8,8 @@
 
 已经开始进入第 2 课。当前理解到：第 2 课主要不是写业务代码，而是先把留言板项目的业务边界、接口契约、前端展示对象和数据库表结构设计清楚。
 
+当前 `repos/messageboard-lessons/lesson-02/` 已经从 `lesson-01` 同步出起始项目骨架，后续会在这个目录中逐步补齐第二课代码，直到达到第二课结束时的状态。
+
 已经继续讨论到：
 
 - VO、Param、Entity 的区别。
@@ -43,7 +45,7 @@
 
 ## 后续待实践
 
-- 在 `repos/messageboard-lessons/lesson-02/` 中补充第 2 课所需的 VO 类。
+- 在 `repos/messageboard-lessons/lesson-02/` 的现有骨架中补充第 2 课所需的 VO 类。
 - 补充参数类。
 - 补充数据库建表 SQL。
 - 后续根据课程进度引入 MyBatis、Mapper 和 Service。

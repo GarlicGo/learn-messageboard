@@ -4,7 +4,7 @@
 
 - 当前课程：第 2 课
 - 当前主题：需求分析、接口文档、视图对象、数据库设计、MyBatis 代码生成
-- 当前状态：第 1 课的基础骨架已经完成；代码组织方式已调整为“按课次拆分”。当前第 1 课实现保存在 `repos/messageboard-lessons/lesson-01/`，后续学习会直接在对应课次目录中继续补充。
+- 当前状态：第 1 课的基础骨架已经完成；代码组织方式已调整为“按课次拆分”。当前第 1 课实现保存在 `repos/messageboard-lessons/lesson-01/`，第 2 课起始代码已同步到 `repos/messageboard-lessons/lesson-02/`，后续会在该目录中逐步补齐第二课结束时的代码。
 
 ## 已经学习
 
@@ -28,6 +28,7 @@
 - 已经完成第 1 课基础代码搭建，包括启动类、`application.yml`、统一返回模板、自动包装器、示例 Controller 和请求参数演示接口。
 - 已经将代码结构调整为：
   - `repos/messageboard-lessons/lesson-01/`：第 1 课代码快照
+  - `repos/messageboard-lessons/lesson-02/`：已从第 1 课代码同步出的第 2 课起始骨架
   - 后续课程会直接落在对应的 `lesson-0x/` 目录中
 
 ## 还不够熟悉
@@ -42,4 +43,4 @@
 ## 下一步建议
 
 - 继续梳理第 2 课的接口设计和数据库设计。
-- 之后在 `repos/messageboard-lessons/lesson-02/` 中补充第 2 课相关代码结构，例如 VO、参数类、实体类和 SQL 文件。
+- 在 `repos/messageboard-lessons/lesson-02/` 的第 1 课骨架基础上，逐步补充第 2 课相关代码结构，例如 VO、参数类、实体类和 SQL 文件。
