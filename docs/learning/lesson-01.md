@@ -293,6 +293,10 @@
 - 示例接口 `HelloController`。
 - 请求参数演示接口 `RequestDemoController`。
 
+目前这一课的代码快照保存在：
+
+- `repos/messageboard-lessons/lesson-01/`
+
 ## 当前限制
 
 - 当前环境里没有可直接调用的 `mvn` 命令，所以这次没法完成真实 Maven 构建验证。

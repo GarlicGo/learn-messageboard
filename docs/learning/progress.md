@@ -4,7 +4,7 @@
 
 - 当前课程：第 2 课
 - 当前主题：需求分析、接口文档、视图对象、数据库设计、MyBatis 代码生成
-- 当前状态：第 1 课的基础骨架已经完成；已经开始学习第 2 课，重点从“如何接收请求”转向“留言板项目要做什么、接口如何定义、数据库如何设计”。
+- 当前状态：第 1 课的基础骨架已经完成；代码组织方式已调整为“按课次拆分”。当前第 1 课实现保存在 `repos/messageboard-lessons/lesson-01/`，后续学习会直接在对应课次目录中继续补充。
 
 ## 已经学习
 
@@ -25,7 +25,10 @@
 - Spring Boot Web 中 `@RequestBody` 默认使用 Jackson 进行 JSON 转换的基本流程。
 - 使用 `CommonResult` 设计统一返回格式。
 - 使用 `CommonResultWrapper` 自动包装 Controller 返回值。
-- 已经在 `repos/messageboard` 中完成第 1 课基础代码搭建，包括启动类、`application.yml`、统一返回模板、自动包装器、示例 Controller 和请求参数演示接口。
+- 已经完成第 1 课基础代码搭建，包括启动类、`application.yml`、统一返回模板、自动包装器、示例 Controller 和请求参数演示接口。
+- 已经将代码结构调整为：
+  - `repos/messageboard-lessons/lesson-01/`：第 1 课代码快照
+  - 后续课程会直接落在对应的 `lesson-0x/` 目录中
 
 ## 还不够熟悉
 
@@ -39,4 +42,4 @@
 ## 下一步建议
 
 - 继续梳理第 2 课的接口设计和数据库设计。
-- 之后在自己的跟练仓库中补充第 2 课相关代码结构，例如 VO、参数类、实体类和 SQL 文件。
+- 之后在 `repos/messageboard-lessons/lesson-02/` 中补充第 2 课相关代码结构，例如 VO、参数类、实体类和 SQL 文件。

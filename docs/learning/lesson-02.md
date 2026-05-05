@@ -43,7 +43,7 @@
 
 ## 后续待实践
 
-- 在自己的跟练仓库中补充第 2 课所需的 VO 类。
+- 在 `repos/messageboard-lessons/lesson-02/` 中补充第 2 课所需的 VO 类。
 - 补充参数类。
 - 补充数据库建表 SQL。
 - 后续根据课程进度引入 MyBatis、Mapper 和 Service。

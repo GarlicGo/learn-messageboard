@@ -23,7 +23,7 @@
 ## 代码仓库
 
 - [repos/messageboard-example-repo](repos/messageboard-example-repo) — 老师授课时编写的示例代码
-- [repos/messageboard](repos/messageboard) — 我自己跟随课程实现的代码
+- [repos/messageboard-lessons](repos/messageboard-lessons/README.md) — 按课次保存的跟练代码快照
 
 ## 学习状态
 
@@ -39,6 +39,7 @@
 ## 如何使用
 
 1. 按照学习路线顺序阅读对应课程的逐字稿（transcript）全文，纪要（summary）仅作课后快速回顾，存在 AI 失真，以逐字稿为准
-2. 参考示例代码仓库，在 `repos/messageboard` 中自己动手实现
+2. 参考示例代码仓库，在当前课次对应的 `repos/messageboard-lessons/lesson-0x` 中继续实现
 3. 接口文档作为 API 参考，贯穿全课程使用
 4. 学习过程中同步维护 `docs/learning`，记录进度、问题和掌握状态
+5. 学习进入下一课时，以上一课目录为基础继续补充下一课代码

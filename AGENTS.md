@@ -9,7 +9,8 @@
 - `docs/learning/`：学习者和 AI 助手共用的学习上下文记录，应该随着学习持续更新。
 - `.codex/skills/learning-context-maintainer/`：当前项目使用的学习上下文维护 Skill。
 - `repos/messageboard-example-repo/`：老师授课时写出的完整示例代码。
-- `repos/messageboard/`：学习者自己跟随课程实现的代码。
+- `repos/messageboard-lessons/`：按课次保存的跟练代码快照。
+- 仓库中不保留不再使用的旧跟练目录，也尽量不保留 `target/`、`.idea/`、`.DS_Store` 等临时产物。
 
 ## 辅助学习时的读取顺序
 
@@ -21,6 +22,8 @@
 4. `docs/learning/questions.md`
 5. 必要时再读取 `docs/course-notes/` 中对应课程的逐字稿和纪要
 6. 需要对照代码时读取 `repos/messageboard-example-repo/`
+7. 需要查看当前实现时优先读取当前学习课次对应的 `repos/messageboard-lessons/lesson-0x/`
+8. 需要回顾或对比某一课的实现时读取对应课次目录
 
 ## 学习记录维护规则
 
@@ -51,5 +54,6 @@
 ## 代码学习原则
 
 - 对照示例代码讲解时，区分“课程演示代码”和“最终项目保留代码”。
-- 修改 `repos/messageboard/` 时，优先让学习者理解每一步为什么这么写。
+- 修改当前课次目录时，优先让学习者理解每一步为什么这么写。
+- 学习进入下一课时，以上一课代码为基础补充到下一课目录，而不是维护单独的 current 工作副本。
 - 不要直接覆盖学习者已有实现，除非用户明确要求。
