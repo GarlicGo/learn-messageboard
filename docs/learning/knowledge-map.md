@@ -33,6 +33,7 @@
 | `@Service` | 初步理解 | Service 层 Bean 标识。 |
 | `@Controller` / `@RestController` | 初步理解 | Controller 层 Bean 标识。 |
 | `@Repository` | 听过 | 持久层 Bean 标识。 |
+| 组件注解和功能注解的区别 | 初步理解 | 有些注解专门注册 Bean，有些注解在实现框架功能时顺带注册 Bean。 |
 | `@Autowired` | 基本理解 | 注入匹配的 Bean。 |
 | `@Qualifier` | 基本理解 | 根据名称选择 Bean。 |
 | `@Primary` | 初步理解 | 设置默认候选 Bean。 |
