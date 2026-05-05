@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.devhub.messageboard.mapper.CommentMapper">
+
+    <resultMap id="CommentResultMap" type="club.devhub.messageboard.entity.Comment">
+        <id property="commentId" column="comment_id"/>
+        <result property="messageId" column="message_id"/>
+        <result property="floor" column="floor"/>
+        <result property="userId" column="user_id"/>
+        <result property="content" column="content"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <resultMap id="CommentVOResultMap" type="club.devhub.messageboard.vo.CommentVO">
+        <id property="commentId" column="comment_id"/>
+        <result property="messageId" column="message_id"/>
+        <result property="floor" column="floor"/>
+        <result property="userId" column="user_id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="content" column="content"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+    <insert id="insert">
+        insert into t_comment(message_id, floor, user_id, content)
+        values (#{messageId}, #{floor}, #{userId}, #{content})
+    </insert>
+
+    <select id="getById" resultMap="CommentResultMap">
+        select comment_id, message_id, floor, user_id, content, create_time, update_time
+        from t_comment
+        where comment_id = #{commentId}
+    </select>
+
+
+    <select id="listVOByMessageId" resultMap="CommentVOResultMap">
+        select tc.comment_id,
+               tc.message_id,
+               tc.floor,
+               tc.user_id,
+               tu.nickname,
+               tc.content,
+               tc.create_time,
+               tc.update_time
+        from t_comment as tc
+                 left join t_user as tu on tc.user_id = tu.user_id
+        where message_id = #{messageId}
+        order by comment_id desc
+    </select>
+
+    <select id="getUserIdById" resultType="java.lang.Long">
+        select user_id
+        from t_comment
+        where comment_id = #{commentId}
+    </select>
+
+
+    <update id="updateById">
+        update t_comment
+        set content=#{content}
+        where comment_id = #{commentId}
+    </update>
+
+    <delete id="deleteById">
+        delete
+        from t_comment
+        where comment_id = #{commentId}
+    </delete>
+
+    <delete id="deleteBatchByMessageId">
+        delete
+        from t_comment
+        where message_id = #{messageId}
+    </delete>
+
+
+    <select id="getContentById" resultType="java.lang.String">
+        select content
+        from t_comment
+        where comment_id = #{commentId}
+    </select>
+    <select id="getMessageIdById" resultType="java.lang.Long">
+        select message_id
+        from t_comment
+        where comment_id = #{commentId}
+    </select>
+
+</mapper>

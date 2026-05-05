@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.devhub.messageboard.mapper.MessageMapper">
+
+    <resultMap id="MessageResultMap" type="club.devhub.messageboard.entity.Message">
+        <id property="messageId" column="message_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="category" column="category"/>
+        <result property="content" column="content"/>
+        <result property="commentNum" column="comment_num"/>
+        <result property="nextFloor" column="next_floor"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <resultMap id="MessageVOResultMap" type="club.devhub.messageboard.vo.MessageVO">
+        <id property="messageId" column="message_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="category" column="category"/>
+        <result property="content" column="content"/>
+        <result property="commentNum" column="comment_num"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <collection property="commentList"
+                    select="club.devhub.messageboard.mapper.CommentMapper.listVOByMessageId"
+                    column="message_id"/>
+    </resultMap>
+
+    <resultMap id="MessageAbstractResultMap" type="club.devhub.messageboard.vo.MessageVO">
+        <id property="messageId" column="message_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="category" column="category"/>
+        <result property="content" column="content"/>
+        <result property="commentNum" column="comment_num"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <insert id="insert">
+        insert into t_message(user_id, category, content)
+        values (#{userId}, #{category}, #{content})
+    </insert>
+
+
+    <select id="getUserIdById" resultType="java.lang.Long">
+        select user_id
+        from t_message
+        where message_id = #{messageId}
+    </select>
+
+    <update id="updateById">
+        update t_message
+        set category=#{category},
+            content=#{content}
+        where message_id = #{messageId}
+    </update>
+
+    <delete id="deleteById">
+        delete
+        from t_message
+        where message_id = #{messageId}
+    </delete>
+
+    <select id="getList" resultMap="MessageAbstractResultMap">
+        select tm.message_id,tm.user_id, tu.nickname,tm.category,tm.content,tm.comment_num,tm.create_time,tm.update_time
+        from t_message as tm
+        left join t_user as tu on tm.user_id=tu.user_id
+        <where>
+            <if test="category != null">
+                tm.category = #{category}
+            </if>
+            <if test="userId != null">
+                and tm.user_id =#{userId}
+            </if>
+        </where>
+        order by message_id desc
+    </select>
+
+
+    <select id="getVOById" resultMap="MessageVOResultMap">
+        select tm.message_id,
+               tm.user_id,
+               tu.nickname,
+               tm.category,
+               tm.content,
+               tm.comment_num,
+               tm.create_time,
+               tm.update_time
+        from t_message as tm
+                 left join t_user as tu on tm.user_id = tu.user_id
+        where message_id = #{messageId}
+    </select>
+
+    <select id="getByIdForUpdate" resultMap="MessageResultMap">
+        select message_id,
+               user_id,
+               category,
+               content,
+               comment_num,
+               next_floor,
+               create_time,
+               update_time
+        from t_message
+        where message_id = #{messageId} for update
+    </select>
+
+
+    <update id="addFloor">
+        update t_message
+        set comment_num=comment_num + 1,
+            next_floor=next_floor + 1
+        where message_id = #{messageId}
+    </update>
+    <update id="reduceFloor">
+        update t_message
+        set comment_num=comment_num - 1
+        where message_id = #{messageId}
+    </update>
+
+    <select id="getContentById" resultType="java.lang.String">
+        select content
+        from t_message
+        where message_id = #{messageId}
+    </select>
+
+</mapper>

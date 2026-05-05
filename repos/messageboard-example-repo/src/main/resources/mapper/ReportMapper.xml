@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.devhub.messageboard.mapper.ReportMapper">
+
+    <resultMap id="ReportResultMap" type="club.devhub.messageboard.entity.Report">
+        <id property="reportId" column="report_id"/>
+        <result property="reportType" column="report_type"/>
+        <result property="targetId" column="target_id"/>
+        <result property="reason" column="reason"/>
+        <result property="userId" column="user_id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <insert id="insert">
+        insert into t_report(report_type, target_id, reason, user_id)
+        values (#{reportType}, #{targetId}, #{reason}, #{userId})
+    </insert>
+
+    <select id="count" resultType="_int">
+        select count(*)
+        from t_report
+        where report_type = #{reportType}
+          and target_id = #{targetId}
+          and user_id = #{userId}
+    </select>
+    <select id="getList" resultMap="ReportResultMap">
+        select report_id, report_type, target_id, reason, user_id, create_time, update_time
+        from t_report
+        order by report_id desc
+    </select>
+    <select id="getById" resultMap="ReportResultMap">
+        select report_id, report_type, target_id, reason, user_id, create_time, update_time
+        from t_report
+        where report_id = #{reportId}
+    </select>
+
+    <delete id="deleteBatch">
+        delete
+        from t_report
+        where report_type = #{reportType}
+          and target_id = #{targetId}
+    </delete>
+</mapper>

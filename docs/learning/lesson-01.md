@@ -281,3 +281,19 @@
 - 重新阅读最终项目中的 `CommonResult` 和 `CommonResultWrapper` 代码。
 - 写一个小 Controller，同时练习 header、query、body、path 参数。
 - 不使用框架术语，自己解释一遍 IOC 和 DI。
+
+## 本次实践结果
+
+已经把自己的跟练仓库搭成了第 1 课基础骨架，包含：
+
+- Spring Boot 启动类 `MessageboardApplication`。
+- `application.yml`。
+- 统一返回模板 `CommonResult`。
+- 自动包装器 `CommonResultWrapper`。
+- 示例接口 `HelloController`。
+- 请求参数演示接口 `RequestDemoController`。
+
+## 当前限制
+
+- 当前环境里没有可直接调用的 `mvn` 命令，所以这次没法完成真实 Maven 构建验证。
+- 代码结构已经对齐第 1 课，但后续还需要在可用 Maven 环境里做一次启动和接口验证。
