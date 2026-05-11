@@ -3,6 +3,7 @@ package club.devhub.messageboard.service.impl;
 import club.devhub.messageboard.entity.User;
 import club.devhub.messageboard.service.UserService;
 import club.devhub.messageboard.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,9 +13,11 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class UserServiceImpl implements UserService{
+    @Autowired
+    private UserMapper userMapper;
 
+    @Override
+    public void register(String username, String password) {
+        userMapper.insert(username, password);
+    }
 }
-
-
-
-

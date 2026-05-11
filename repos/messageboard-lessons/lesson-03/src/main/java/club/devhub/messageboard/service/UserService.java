@@ -1,6 +1,7 @@
 package club.devhub.messageboard.service;
 
 import club.devhub.messageboard.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 /**
 * @author zhouxinyu
@@ -9,4 +10,5 @@ import club.devhub.messageboard.entity.User;
 */
 public interface UserService {
 
+    void register(String username, String password);
 }

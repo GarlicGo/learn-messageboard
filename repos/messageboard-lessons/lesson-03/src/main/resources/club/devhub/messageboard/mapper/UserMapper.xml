@@ -3,4 +3,34 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="club.devhub.messageboard.mapper.UserMapper">
+    <resultMap id="UserResultMap" type="club.devhub.messageboard.entity.User">
+        <id property="userId" column="user_id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="passwd"/>
+        <result property="nickname" column="nickname"/>
+        <result property="sex" column="sex"/>
+        <result property="role" column="user_role"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+    <insert id="insert">
+        insert into t_user(username, passwd)
+        values (#{username}, #{password})
+    </insert>
+    <select id="getById" resultMap="UserResultMap">
+        select *
+        from t_user
+        where user_id = #{userId}
+    </select>
+    <update id="updateById">
+        update t_user
+        set nickname=#{nickname},
+            sex=#{sex}
+        where user_id = #{userId}
+    </update>
+    <delete id="deleteById">
+        delete
+        from t_user
+        where user_id = #{userId}
+    </delete>
 </mapper>

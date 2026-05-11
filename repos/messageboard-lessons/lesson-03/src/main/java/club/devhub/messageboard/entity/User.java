@@ -22,7 +22,7 @@ public class User {
     /**
      * 密码
      */
-    private String passwd;
+    private String password;
 
     /**
      * 昵称
@@ -37,7 +37,7 @@ public class User {
     /**
      * 角色
      */
-    private Integer userRole;
+    private Integer role;
 
     /**
      * 创建时间

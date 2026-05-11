@@ -1,6 +1,7 @@
 package club.devhub.messageboard.mapper;
 
 import club.devhub.messageboard.entity.Comment;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
 * @author zhouxinyu
@@ -8,6 +9,7 @@ import club.devhub.messageboard.entity.Comment;
 * @createDate 2026-05-06 01:22:07
 * @Entity club.devhub.messageboard.entity.Comment
 */
+@Mapper
 public interface CommentMapper {
 
 }
