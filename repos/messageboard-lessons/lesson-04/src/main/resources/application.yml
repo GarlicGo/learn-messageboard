@@ -33,3 +33,8 @@ logging:
   level:
     # 把日志级别设置为DEBUG，可以在控制台打印出SQL语句，方便调试
     club.devhub.messageboard.mapper: DEBUG
+jwt:
+  #  jwt工具类加密用的密码
+  secret: devhub
+  #  jwt工具类设定的有效时间,以天为单位
+  expiration: 7

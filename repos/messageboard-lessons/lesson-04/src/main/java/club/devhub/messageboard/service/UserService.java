@@ -2,6 +2,9 @@ package club.devhub.messageboard.service;
 
 import club.devhub.messageboard.entity.User;
 import org.apache.ibatis.annotations.Param;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotBlank;
 
 /**
 * @author zhouxinyu
@@ -11,4 +14,6 @@ import org.apache.ibatis.annotations.Param;
 public interface UserService {
 
     void register(String username, String password);
+
+    User login(@NotBlank(message = "用户名不能为空") @Length(max=20, message = "用户名长度最大是20") String username, @NotBlank(message = "密码不能为空") @Length(max=20, message = "密码长度最大是20") String password);
 }

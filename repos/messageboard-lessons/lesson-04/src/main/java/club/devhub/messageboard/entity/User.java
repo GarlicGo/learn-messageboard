@@ -1,14 +1,26 @@
 package club.devhub.messageboard.entity;
 
-import java.time.LocalDateTime;
+import club.devhub.messageboard.constant.UserRoleEnum;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.util.Assert;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
- * 用户表
- * @TableName t_user
+ * 用户实体类
+ * 对于t_user
  */
 @Data
-public class User {
+@NoArgsConstructor
+@AllArgsConstructor
+public class User implements Serializable, UserDetails {
     /**
      * 用户ID
      */
@@ -48,4 +60,42 @@ public class User {
      * 更新时间
      */
     private LocalDateTime updateTime;
+
+    private static final long serialVersionUID = 1L;
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Assert.notNull(this.role, "role不能为null");
+        for (UserRoleEnum roleEnum : UserRoleEnum.values()) {
+            if (roleEnum.getRole() == this.role) {
+                return roleEnum.getAuthorities();
+            }
+        }
+        return new ArrayList<>(0);
+    }
+
+    //必须为true！
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    //必须为true！
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    //必须为true！
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    //必须为true！
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

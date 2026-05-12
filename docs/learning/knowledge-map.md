@@ -91,6 +91,17 @@
 | `CommonResultWrapper` | 基本理解 | 自动包装 Controller 返回值。 |
 | 第 1 课项目骨架搭建 | 基本理解 | 已在跟练仓库中完成基础结构。 |
 
+## 认证和授权
+
+| 知识点 | 状态 | 备注 |
+|---|---|---|
+| JWT | 听过 | 第 4 课开始接触，用于登录后携带用户身份信息。 |
+| Spring Security 认证/授权 | 听过 | 已发现视频旧写法和当前示例代码的新写法存在版本差异。 |
+| `WebSecurityConfigurerAdapter` 迁移 | 初步理解 | 旧版继承 Adapter 的写法在 Spring Security 5.7+ 被弃用，当前项目使用 `SecurityFilterChain` 等组件式配置。 |
+| `SecurityFilterChain` | 听过 | 当前示例仓库用它替代旧版 `configure(HttpSecurity)`。 |
+| `TokenFilter` | 听过 | 用于解析请求 token 并设置当前请求认证信息。 |
+| `UserDetailsService` / `PasswordEncoder` / `AuthenticationManager` | 听过 | 登录认证相关组件，后续需要结合代码链路理解。 |
+
 ## 工具
 
 | 知识点 | 状态 | 备注 |

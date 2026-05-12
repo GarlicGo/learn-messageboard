@@ -33,4 +33,9 @@
         from t_user
         where user_id = #{userId}
     </delete>
+    <select id="getByUsername" resultMap="UserResultMap">
+        select user_id, username, passwd, user_role
+        from t_user
+        where username = #{username}
+    </select>
 </mapper>

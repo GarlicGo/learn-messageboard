@@ -19,6 +19,8 @@ public interface UserMapper {
     int updateById(@Param("userId") Long userId, @Param("nickname") String nickname, @Param("sex") Integer sex);
 
     int deleteById(@Param("userId") Long userId);
+
+    User getByUsername(String username);
 }
 
 

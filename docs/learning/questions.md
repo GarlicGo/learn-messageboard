@@ -2,6 +2,8 @@
 
 ## 已解决
 
+- 第 4 课视频中的 `SecurityConfig` 为什么和当前示例仓库不同：视频使用的是继承 `WebSecurityConfigurerAdapter` 的旧写法；当前示例仓库基于 Spring Boot 2.7.1 / Spring Security 5.7+，已迁移为组件式配置。旧写法里的 `configure(HttpSecurity)` 主要对应现在的 `@Bean SecurityFilterChain filterChain(...)`；旧写法里注入的 `TokenFilter`、`AuthenticationEntryPoint`、`PasswordEncoder`、`UserDetailsService` 等并没有消失，而是通过方法参数、独立 `@Component` 或 `@Bean` 继续进入 Spring 容器并参与认证流程。
+
 ### `main` 方法是 Java 的要求还是 Spring 的要求？
 
 `main` 方法是 Java 程序入口。`SpringApplication.run(...)` 是 Spring Boot 的启动调用，会创建 Spring 应用上下文、读取配置、扫描组件，并启动内置 Tomcat。
