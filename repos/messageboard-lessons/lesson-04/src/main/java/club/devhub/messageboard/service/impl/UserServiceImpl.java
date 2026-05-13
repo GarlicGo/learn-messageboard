@@ -3,8 +3,10 @@ package club.devhub.messageboard.service.impl;
 import club.devhub.messageboard.constant.ResultCodeEnum;
 import club.devhub.messageboard.entity.User;
 import club.devhub.messageboard.exception.BusinessException;
+import club.devhub.messageboard.exception.NotFoundException;
 import club.devhub.messageboard.service.UserService;
 import club.devhub.messageboard.mapper.UserMapper;
+import club.devhub.messageboard.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -58,6 +60,23 @@ public class UserServiceImpl implements UserService {
             throw new BusinessException(ResultCodeEnum.WRONG_USERNAME_OR_PASSWORD, "用户名或密码错误");
         }
 
-        return (User)authentication.getPrincipal();
+        return (User) authentication.getPrincipal();
+    }
+
+    @Override
+    public UserVO getInfo(Long userId) {
+        UserVO userVO = userMapper.getVOById(userId);
+        if (userVO == null) {
+            throw new NotFoundException("userId为" + userId + "的用户不存在");
+        }
+        return userVO;
+    }
+
+    @Override
+    public void modifyInfo(Long userId, String nickname, Integer sex) {
+        int matched = userMapper.updateById(userId, nickname, sex);
+        if (matched == 0) {
+            throw  new NotFoundException("userId为" + userId + "的用户不存在");
+        }
     }
 }

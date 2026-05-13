@@ -1,6 +1,7 @@
 package club.devhub.messageboard.mapper;
 
 import club.devhub.messageboard.entity.User;
+import club.devhub.messageboard.vo.UserVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -21,6 +22,8 @@ public interface UserMapper {
     int deleteById(@Param("userId") Long userId);
 
     User getByUsername(String username);
+
+    UserVO getVOById(@Param("userId") Long userId);
 }
 
 

@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 //import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.BindException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MissingRequestHeaderException;
@@ -95,12 +96,12 @@ public class GlobalExceptionHandler {
     /**
      * 请求的接口权限不足，例如一个普通用户去请求管理员才能用的接口（这是授权的时候抛出的异常，在进入Controller之前就被拦住，更不会进入Service层）
      */
-//    @ResponseStatus(HttpStatus.FORBIDDEN)
-//    @ExceptionHandler(AccessDeniedException.class)
-//    public CommonResult handleAccessDeniedException(Exception e) {
-//        log.warn(formatException(e, null, false));
-//        return CommonResult.failure("权限不足");
-//    }
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ExceptionHandler(AccessDeniedException.class)
+    public CommonResult handleAccessDeniedException(Exception e) {
+        log.warn(formatException(e, null, false));
+        return CommonResult.failure("权限不足");
+    }
 
     /**
      * 请求的操作非法，例如一个普通用户要删除其他普通用户发布的内容（已通过授权并进入了Controller层，但是在Service层发现操作非法而抛出的异常）
